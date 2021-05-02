@@ -1,0 +1,19 @@
+{
+  "name": "ignorecheck",
+  "version": "1.0.0",
+  "description": "A simple CLI utility to make sure certain patterns are available in a project's .gitignore",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smashah/ignorecheck.git"
+  },
+  "author": "SMASHAH <shah@idk.uno>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smashah/ignorecheck/issues"
+  },
+  "homepage": "https://github.com/smashah/ignorecheck#readme"
+}
