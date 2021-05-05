@@ -100,5 +100,4 @@ export const start = async () => {
     }
 }
 
-
-start()
+// start()
