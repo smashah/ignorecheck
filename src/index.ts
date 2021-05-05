@@ -32,6 +32,11 @@ const cli = meow(`
             type: 'boolean',
             default: false
         },
+        force: {
+            type: 'boolean',
+            alias: 'f',
+            default: false
+        },
         silent: {
             type: 'boolean',
             alias: 's',
@@ -55,7 +60,12 @@ export const start = async () => {
     }
     const patterns = cli.flags.pattern
 
-    const filePath = findUp.sync('.gitignore');
+    let filePath = findUp.sync('.gitignore');
+
+    if(!filePath && cli.flags.force) {
+        log(`.gitignore not found. Forcing creation at ./.gitignore`)
+        filePath = './.gitignore'
+    }
 
     if (filePath) {
         /**
