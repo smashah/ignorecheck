@@ -65,6 +65,7 @@ export const start = async () => {
     if(!filePath && cli.flags.force) {
         log(`.gitignore not found. Forcing creation at ./.gitignore`)
         filePath = './.gitignore'
+        await writeFileSync(filePath, '');
     }
 
     if (filePath) {
