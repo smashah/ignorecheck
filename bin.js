@@ -1,4 +1,4 @@
 #! /usr/bin/env node
-export * from './dist/index.js';
+import { start } from './dist/index.js';
 
 start();
