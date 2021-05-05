@@ -85,6 +85,7 @@ export const start = async () => {
         }
         process.exit(0);
     } else {
+        log(`.gitignore not found. Skipping ignore-check...`)
         process.exit(1);
     }
 }
