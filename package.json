@@ -28,6 +28,7 @@
     "@sindresorhus/tsconfig": "^1.0.2"
   },
   "dependencies": {
-    "find-up": "^5.0.0"
+    "find-up": "^5.0.0",
+    "meow": "^10.0.0"
   }
 }
