@@ -1,6 +1,15 @@
+<div align="center">
+<img src="https://raw.githubusercontent.com/smashah/ignorecheck/master/assets/ignore-check.png" width="600"/>
+
 # ignore-check
 
 > A simple CLI utility to make sure certain patterns are present in a project's .gitignore file.
+>
+
+[![npm version](https://img.shields.io/npm/v/smashah/ignorecheck.svg?color=green)](https://www.npmjs.com/package/smashah/ignorecheck)
+[![Downloads](https://img.shields.io/npm/dm/smashah/ignorecheck.svg)](https://www.npmjs.com/package/smashah/ignorecheck)
+
+</div>
 
 ## Install
 
