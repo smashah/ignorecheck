@@ -13,9 +13,16 @@ import meow from 'meow';
 
 const cli = meow(`
      Usage
-       $ ignore-check <pattern>
+       $ ignore-check -p <pattern>
+       
      Options
-       --cwd=<directory>  Working directory
+       -p, --pattern=<gitignore pattern entry> (multiple) The patterns that need to present in the .gitignore
+       -d, --cwd=<directory>  Working directory, if not set, it will automatically try to find .gitignore files in parent directories recursively.
+       -c, --comment=<comment> The comment you want surrounding the added lines.
+       -f, --force Forces the creationg of a .gitignore in the current directory if one does not   exist already or cannot be found while checking parent directories.
+       -s, --silent Silences all logs.
+       --dry-run Does not change any files, just outputs logs.
+
      Example
        $ npx ignore-check -p '**.data.json' -p dist -p '**.ignore.**'  --comment 'managed by open-wa'
  `, {
@@ -54,6 +61,12 @@ const cli = meow(`
 
 export const start = async () => {
     const log = (s : string) => cli.flags.silent ?  {} : console.log(`\n***.GITIGNORE CHECK***\n\n${s}\n\n***\n`)
+    
+    if(process.env["SKIP_GITIGNORE_CHECK"]) {
+        log('Skipping .gitignore check. "SKIP_GITIGNORE_CHECK" environment variable was found.')
+        return;
+    }
+    
     if (cli.flags.pattern.length === 0) {
         console.error('Specify at least one pattern');
         process.exit(1);
