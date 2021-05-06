@@ -24,8 +24,8 @@ $ npx ignore-check
 
   Options
     -p, --pattern=<gitignore pattern entry> (multiple) The patterns that need to present in the .gitignore
-    --d, --cwd=<directory>  Working directory, if not set, it will automatically try to find .gitignore files in parent directories recursively.
-    --c, --comment=<comment> The comment you want surrounding the added lines.
+    -d, --cwd=<directory>  Working directory, if not set, it will automatically try to find .gitignore files in parent directories recursively.
+    -c, --comment=<comment> The comment you want surrounding the added lines.
     -f, --force Forces the creationg of a .gitignore in the current directory if one does not   exist already or cannot be found while checking parent directories.
     -s, --silent Silences all logs.
     --dry-run Does not change any files, just outputs logs.
