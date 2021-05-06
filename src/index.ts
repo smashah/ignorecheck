@@ -25,50 +25,50 @@ const cli = meow(`
 
      Example
        $ npx ignore-check -p '**.data.json' -p dist -p '**.ignore.**'  --comment 'managed by open-wa'
- `, 
- //@ts-ignore
- {
-    flags: {
-        cwd: {
-            type: 'string',
-            alias: 'd',
-        },
-        comment: {
-            type: 'string',
-            alias: 'c',
-        },
-        dryRun: {
-            type: 'boolean',
-            default: false
-        },
-        force: {
-            type: 'boolean',
-            alias: 'f',
-            default: false
-        },
-        silent: {
-            type: 'boolean',
-            alias: 's',
-            default: false
-        },
-        pattern: {
-            type: 'string',
-            isMultiple: true,
-            isRequired: true,
-            alias: 'p',
+ `,
+    {
+        importMeta: import.meta,
+        flags: {
+            cwd: {
+                type: 'string',
+                alias: 'd',
+            },
+            comment: {
+                type: 'string',
+                alias: 'c',
+            },
+            dryRun: {
+                type: 'boolean',
+                default: false
+            },
+            force: {
+                type: 'boolean',
+                alias: 'f',
+                default: false
+            },
+            silent: {
+                type: 'boolean',
+                alias: 's',
+                default: false
+            },
+            pattern: {
+                type: 'string',
+                isMultiple: true,
+                isRequired: true,
+                alias: 'p',
+            }
         }
-    }
-});
+    });
 
 
 export const start = async () => {
-    const log = (s : string) => cli.flags.silent ?  {} : console.log(`\n***.GITIGNORE CHECK***\n\n${s}\n\n***\n`)
-    
-    if(process.env["SKIP_GITIGNORE_CHECK"]) {
+    const log = (s: string) => cli.flags.silent ? {} : console.log(`\n***.GITIGNORE CHECK***\n\n${s}\n\n***\n`)
+
+    if (process.env["SKIP_GITIGNORE_CHECK"]) {
         log('Skipping .gitignore check. "SKIP_GITIGNORE_CHECK" environment variable was found.')
         return;
     }
-    
+
     if (cli.flags.pattern.length === 0) {
         console.error('Specify at least one pattern');
         process.exit(1);
@@ -77,7 +77,7 @@ export const start = async () => {
 
     let filePath = findUp.sync('.gitignore');
 
-    if(!filePath && cli.flags.force) {
+    if (!filePath && cli.flags.force) {
         log(`.gitignore not found. Forcing creation at ./.gitignore`)
         filePath = './.gitignore'
         await writeFileSync(filePath, '');
