@@ -35,7 +35,9 @@ $ npx ignore-check
 
 If you are developing a library that has specific sensitive file formats, you can add this script to your package.json as an `install` command.
 
-For example, in [open-wa](https://github.com/open-wa/wa-automate-nodejs), there is a super sensitive file which always ends with ".data.json". as the maintainer, I want to make sure that these files never get commited to repos and end up being leaked publicly. So I've added the following line to my package.json for that library.
+For example, in [open-wa](https://github.com/open-wa/wa-automate-nodejs), there is a super sensitive file which always ends with `.data.json`.
+
+As the maintainer, I want to make sure that these files never get commited to repos and end up being leaked publicly. So I've added the following line to my package.json for that library.
 
 ```javascript
 //package.json
@@ -55,3 +57,12 @@ Your users can bypass this check by either:
 
 1. Running `npm install your-lib` with the `--ignore-scripts` flag. The disadvantage of doing this is that it will ignore scripts from other dependencies also.
 2. Set `SKIP_GITIGNORE_CHECK=true` as an environmental variable.
+
+## Acknowledgements & Inspirations
+
+- [ensure-gitignore](https://github.com/seek-oss/ensure-gitignore)
+- [find-up](https://github.com/sindresorhus/find-up)
+
+## License
+
+ISC © [Mohammed Shah](https://github.com/smashah)

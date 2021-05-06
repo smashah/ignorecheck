@@ -14,7 +14,7 @@ import meow from 'meow';
 const cli = meow(`
      Usage
        $ ignore-check -p <pattern>
-       
+
      Options
        -p, --pattern=<gitignore pattern entry> (multiple) The patterns that need to present in the .gitignore
        -d, --cwd=<directory>  Working directory, if not set, it will automatically try to find .gitignore files in parent directories recursively.
@@ -25,7 +25,9 @@ const cli = meow(`
 
      Example
        $ npx ignore-check -p '**.data.json' -p dist -p '**.ignore.**'  --comment 'managed by open-wa'
- `, {
+ `, 
+ //@ts-ignore
+ {
     flags: {
         cwd: {
             type: 'string',
