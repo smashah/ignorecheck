@@ -71,7 +71,7 @@ export const start = async () => {
 
     if (cli.flags.pattern.length === 0) {
         console.error('Specify at least one pattern');
-        process.exit(1);
+        process.exit(0);
     }
     const patterns = cli.flags.pattern
 
@@ -112,7 +112,7 @@ export const start = async () => {
         process.exit(0);
     } else {
         log(`.gitignore not found. Skipping ignore-check...`)
-        process.exit(1);
+        process.exit(0);
     }
 }
 

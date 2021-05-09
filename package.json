@@ -1,6 +1,6 @@
 {
   "name": "ignore-check",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A simple CLI utility to make sure certain patterns are available in a project's .gitignore",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,8 @@
   "dependencies": {
     "find-up": "^5.0.0",
     "meow": "^10.0.0"
+  },
+  "resolutions": {
+    "graceful-fs": "4.2.6"
   }
 }
